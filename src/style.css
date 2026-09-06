@@ -42,7 +42,15 @@
   }
 
   .btn-gold {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-bold text-white shadow-md transition-all duration-300 hover:brightness-110 hover:-translate-y-0.5;
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-sage px-6 py-3 text-sm font-bold text-white shadow-md transition-all duration-300 hover:bg-meadow hover:text-forest hover:-translate-y-0.5;
+  }
+
+  .btn-whatsapp {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-sm font-bold text-white shadow-md transition-all duration-300 hover:bg-[#20bd5a] hover:-translate-y-0.5;
+  }
+
+  .btn-call-float {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-meadow text-forest px-5 py-3.5 text-sm font-bold shadow-2xl transition-transform hover:scale-105 hover:bg-sage hover:text-white;
   }
 
   .section-title {

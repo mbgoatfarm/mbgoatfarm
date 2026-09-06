@@ -35,7 +35,7 @@ function contactButtons(message: string, fullWidth = true): string {
   return `
     <div class="flex flex-col gap-2">
       <a href="${callUrl}" class="btn-gold ${w} text-center text-sm">📞 Call ${PHONE}</a>
-      <a href="${whatsappLink(message)}" target="_blank" rel="noopener noreferrer" class="btn-primary ${w} text-center text-sm">💬 WhatsApp Us</a>
+      <a href="${whatsappLink(message)}" target="_blank" rel="noopener noreferrer" class="btn-whatsapp ${w} text-center text-sm">💬 WhatsApp Us</a>
     </div>
   `
 }
@@ -390,99 +390,66 @@ function render(): string {
 
     <!-- Contact -->
     <section id="contact" class="py-20 md:py-28 bg-forest text-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid md:grid-cols-2 gap-12">
-          <div class="reveal">
-            <span class="text-meadow font-bold text-sm uppercase tracking-wider">Get in Touch</span>
-            <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-6">Contact MB Goat Farm</h2>
-            <p class="text-white/75 leading-relaxed mb-6">
-              Looking for goats, Qurbani animals, fresh meat service, or animal feed? Contact us today for details, availability, and booking.
-            </p>
-            <div class="rounded-2xl bg-white/10 border border-white/20 p-6 mb-8">
-              <p class="text-2xl font-extrabold text-meadow mb-2">${PHONE}</p>
-              <p class="text-white/80 text-sm mb-5">Call us or send a WhatsApp message on this number. We reply quickly!</p>
-              <div class="flex flex-col sm:flex-row gap-3">
-                <a href="${callUrl}" class="btn-gold flex-1 text-center">📞 Call Now</a>
-                <a href="${whatsappLink('Hi MB Goat Farm, I want to get in touch with you.')}" target="_blank" rel="noopener noreferrer" class="btn-secondary border-white/40 text-white hover:bg-white hover:text-forest flex-1 text-center">💬 WhatsApp</a>
-              </div>
-            </div>
-            <div class="space-y-5">
-              <div class="flex items-start gap-4">
-                <span class="text-2xl">📞</span>
-                <div>
-                  <p class="font-bold">Phone / Call</p>
-                  <a href="${callUrl}" class="text-meadow text-lg font-semibold hover:underline">${PHONE}</a>
-                </div>
-              </div>
-              <div class="flex items-start gap-4">
-                <span class="text-2xl">💬</span>
-                <div>
-                  <p class="font-bold">WhatsApp</p>
-                  <a href="${whatsappLink('Hi MB Goat Farm!')}" target="_blank" rel="noopener noreferrer" class="text-meadow text-lg font-semibold hover:underline">${PHONE}</a>
-                  <p class="text-white/60 text-sm mt-1">Tap to open WhatsApp chat</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-4">
-                <span class="text-2xl">📧</span>
-                <div>
-                  <p class="font-bold">Email</p>
-                  <p class="text-white/70 text-sm">info@mbgoatfarm.com</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-4">
-                <span class="text-2xl">📍</span>
-                <div>
-                  <p class="font-bold">Farm Location</p>
-                  <p class="text-white/70 text-sm">MB Goat Farm, Green Valley Road, Punjab, Pakistan</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-4">
-                <span class="text-2xl">🕐</span>
-                <div>
-                  <p class="font-bold">Farm Hours</p>
-                  <p class="text-white/70 text-sm">Mon – Sat: 8:00 AM – 6:00 PM</p>
-                  <p class="text-white/70 text-sm">Sunday: 9:00 AM – 2:00 PM</p>
-                </div>
-              </div>
-            </div>
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 reveal">
+          <span class="text-meadow font-bold text-sm uppercase tracking-wider">Get in Touch</span>
+          <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">Contact MB Goat Farm</h2>
+          <p class="text-white/75 leading-relaxed max-w-2xl mx-auto">
+            Need goats, Qurbani animals, fresh meat, or feed? Reach us on call or WhatsApp — we reply quickly.
+          </p>
+        </div>
+
+        <div class="reveal rounded-2xl bg-white/10 border border-white/15 p-8 md:p-10 text-center mb-10">
+          <p class="text-sm uppercase tracking-wider text-meadow font-semibold mb-2">Call or WhatsApp</p>
+          <a href="${callUrl}" class="text-3xl md:text-4xl font-extrabold text-white hover:text-meadow transition block mb-6">${PHONE_DISPLAY}</a>
+          <div class="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
+            <a href="${callUrl}" class="btn-gold flex-1">📞 Call Now</a>
+            <a href="${whatsappLink('Hi MB Goat Farm, I want to get in touch with you.')}" target="_blank" rel="noopener noreferrer" class="btn-whatsapp flex-1">💬 WhatsApp</a>
           </div>
-          <div class="reveal">
-            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/10">
-              <h3 class="text-xl font-bold mb-4">Quick Contact</h3>
-              <p class="text-white/75 text-sm mb-6">The fastest way to reach us is by call or WhatsApp on <strong class="text-meadow">${PHONE}</strong>.</p>
-              <div class="space-y-3">
-                <a href="${callUrl}" class="btn-gold w-full text-center block">📞 Call ${PHONE}</a>
-                <a href="${whatsappLink('Hi MB Goat Farm, I have a question about your goats and services.')}" target="_blank" rel="noopener noreferrer" class="btn-primary w-full text-center block bg-[#25D366] border-[#25D366] hover:bg-[#20bd5a]">💬 Message on WhatsApp</a>
-              </div>
-              <p class="text-white/50 text-xs text-center mt-4">Available for goats, Qurbani, meat orders, and feed delivery</p>
-            </div>
+        </div>
+
+        <div class="reveal grid sm:grid-cols-3 gap-6 text-center sm:text-left">
+          <div class="rounded-xl bg-white/5 border border-white/10 p-5">
+            <span class="text-2xl block mb-2">📧</span>
+            <p class="font-bold text-sm mb-1">Email</p>
+            <p class="text-white/70 text-sm">info@mbgoatfarm.com</p>
+          </div>
+          <div class="rounded-xl bg-white/5 border border-white/10 p-5">
+            <span class="text-2xl block mb-2">📍</span>
+            <p class="font-bold text-sm mb-1">Farm Location</p>
+            <p class="text-white/70 text-sm">Green Valley Road, Punjab, Pakistan</p>
+          </div>
+          <div class="rounded-xl bg-white/5 border border-white/10 p-5">
+            <span class="text-2xl block mb-2">🕐</span>
+            <p class="font-bold text-sm mb-1">Farm Hours</p>
+            <p class="text-white/70 text-sm">Mon – Sat: 8 AM – 6 PM</p>
+            <p class="text-white/70 text-sm">Sun: 9 AM – 2 PM</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-earth text-white/80 py-12">
+    <footer class="bg-[#0f2410] border-t border-meadow/20 text-white/75 py-12">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8 mb-8">
           <div>
             <p class="flex items-center gap-2 font-display font-bold text-white text-lg mb-3">
               <span>🐐</span> MB Goat Farm
             </p>
-            <p class="text-sm leading-relaxed mb-3">Healthy goats, trusted genetics, and sustainable farming for families and farmers.</p>
-            <a href="${callUrl}" class="text-meadow font-bold hover:underline">📞 ${PHONE}</a>
+            <p class="text-sm leading-relaxed text-white/60">Healthy goats, trusted genetics, and sustainable farming for families and farmers.</p>
           </div>
           <div>
-            <p class="font-bold text-white mb-3">Quick Links</p>
+            <p class="font-bold text-meadow mb-3">Quick Links</p>
             <ul class="space-y-2 text-sm">
-              <li><a href="#about" class="hover:text-meadow transition">About Us</a></li>
-              <li><a href="#shop" class="hover:text-meadow transition">Our Goats</a></li>
-              <li><a href="#feed" class="hover:text-meadow transition">Animal Feed</a></li>
-              <li><a href="#contact" class="hover:text-meadow transition">Contact</a></li>
+              <li><a href="#about" class="hover:text-white transition">About Us</a></li>
+              <li><a href="#shop" class="hover:text-white transition">Our Goats</a></li>
+              <li><a href="#feed" class="hover:text-white transition">Animal Feed</a></li>
+              <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
             </ul>
           </div>
           <div>
-            <p class="font-bold text-white mb-3">Services</p>
+            <p class="font-bold text-meadow mb-3">Services</p>
             <ul class="space-y-2 text-sm">
               <li>Goats for Sale</li>
               <li>Qurbani Booking</li>
@@ -490,23 +457,20 @@ function render(): string {
               <li>Dry Lusan & Wanda</li>
             </ul>
           </div>
-          <div>
-            <p class="font-bold text-white mb-3">Contact Us</p>
-            <ul class="space-y-2 text-sm">
-              <li><a href="${callUrl}" class="hover:text-meadow transition">📞 Call ${PHONE}</a></li>
-              <li><a href="${whatsappLink('Hi MB Goat Farm!')}" target="_blank" rel="noopener noreferrer" class="hover:text-meadow transition">💬 WhatsApp ${PHONE}</a></li>
-            </ul>
-          </div>
         </div>
-        <div class="border-t border-white/10 pt-6 text-center text-sm">
-          <p>&copy; ${new Date().getFullYear()} MB Goat Farm. All rights reserved. Call ${PHONE} for orders.</p>
+        <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-white/50">
+          <p>&copy; ${new Date().getFullYear()} MB Goat Farm. All rights reserved.</p>
+          <div class="flex gap-4">
+            <a href="${callUrl}" class="hover:text-meadow transition">📞 ${PHONE}</a>
+            <a href="${whatsappLink('Hi MB Goat Farm!')}" target="_blank" rel="noopener noreferrer" class="hover:text-meadow transition">💬 WhatsApp</a>
+          </div>
         </div>
       </div>
     </footer>
 
-    <!-- Floating WhatsApp -->
+    <!-- Floating contact -->
     <a href="${whatsappLink('Hi MB Goat Farm, I want to know about your goats!')}" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white text-2xl shadow-2xl hover:scale-110 transition-transform" title="WhatsApp ${PHONE}">💬</a>
-    <a href="${callUrl}" class="fixed bottom-6 right-24 z-50 hidden sm:flex items-center gap-2 rounded-full bg-gold text-white px-5 py-3.5 text-sm font-bold shadow-2xl hover:scale-105 transition-transform" title="Call ${PHONE}">📞 ${PHONE_DISPLAY}</a>
+    <a href="${callUrl}" class="fixed bottom-6 right-24 z-50 hidden sm:flex btn-call-float" title="Call ${PHONE}">📞 ${PHONE_DISPLAY}</a>
   `
 }
 
