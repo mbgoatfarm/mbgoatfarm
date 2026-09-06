@@ -1,0 +1,196 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "Nunito", system-ui, sans-serif;
+  --color-forest: #1a3d1a;
+  --color-forest-light: #2d5a27;
+  --color-sage: #6b8f5e;
+  --color-meadow: #a8c686;
+  --color-cream: #faf7f0;
+  --color-wheat: #e8dcc4;
+  --color-earth: #5c4033;
+  --color-gold: #c4a035;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: #eef4e6;
+    background-image:
+      radial-gradient(ellipse 100% 80% at 50% 100%, rgba(107, 143, 94, 0.2) 0%, transparent 60%),
+      linear-gradient(to bottom, #faf7f0, #e8f0dc);
+    color: #2c2c2c;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-forest px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:bg-forest-light hover:shadow-xl hover:-translate-y-0.5;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-forest bg-transparent px-6 py-3 text-sm font-semibold text-forest transition-all duration-300 hover:bg-forest hover:text-white;
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-bold text-white shadow-md transition-all duration-300 hover:brightness-110 hover:-translate-y-0.5;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-forest leading-tight;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-earth/80 max-w-2xl;
+  }
+
+  .card {
+    @apply rounded-2xl bg-white/95 backdrop-blur-sm shadow-md border border-wheat/60 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+
+  .section-inner {
+    @apply relative z-10;
+  }
+
+  /* Soft green meadow — subtle grass feel */
+  .grass-pattern {
+    background-color: #eef4e6;
+    background-image:
+      radial-gradient(ellipse 100% 55% at 50% 100%, rgba(107, 143, 94, 0.4) 0%, transparent 70%),
+      radial-gradient(ellipse 55% 35% at 10% 95%, rgba(168, 198, 134, 0.35) 0%, transparent 60%),
+      radial-gradient(ellipse 55% 35% at 90% 90%, rgba(45, 90, 39, 0.28) 0%, transparent 60%),
+      linear-gradient(to bottom, #faf7f0 0%, #e8f0dc 50%, #d4e4c4 100%);
+  }
+
+  /* Pasture photo blended into the ground */
+  .grass-pasture {
+    position: relative;
+    background-color: #e4edd8;
+    background-image:
+      linear-gradient(to bottom, rgba(250, 247, 240, 0.88) 0%, rgba(232, 240, 216, 0.72) 50%, rgba(196, 214, 168, 0.55) 100%),
+      url('/goats/grass-ground.png');
+    background-size: cover;
+    background-position: center bottom;
+  }
+
+  .grass-pasture::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 40% at 50% 100%, rgba(45, 90, 39, 0.18) 0%, transparent 70%),
+      linear-gradient(to top, rgba(107, 143, 94, 0.12) 0%, transparent 40%);
+    pointer-events: none;
+  }
+
+  /* Open field with visible grass at the bottom */
+  .grass-field {
+    position: relative;
+    background-color: #dce8cc;
+    background-image:
+      linear-gradient(to bottom, #faf7f0 0%, #eef4e6 35%, #dce8cc 65%, #c4d9a8 100%),
+      url('/goats/grass-ground.png');
+    background-size: cover, cover;
+    background-position: center top, center bottom;
+    background-repeat: no-repeat;
+  }
+
+  .grass-field::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 120px;
+    background: linear-gradient(to top, rgba(107, 143, 94, 0.25), transparent);
+    pointer-events: none;
+  }
+
+  /* Tiny grass-blade texture overlay */
+  .grass-texture {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%236b8f5e' opacity='0.07'%3E%3Cpath d='M8 80 Q10 55 6 30 Q9 50 8 80'/%3E%3Cpath d='M24 80 Q26 50 22 25 Q25 48 24 80'/%3E%3Cpath d='M40 80 Q42 58 38 32 Q41 52 40 80'/%3E%3Cpath d='M56 80 Q58 52 54 28 Q57 46 56 80'/%3E%3Cpath d='M72 80 Q74 56 70 30 Q73 50 72 80'/%3E%3C/g%3E%3C/svg%3E");
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out forwards;
+}
+
+.hero-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(26, 61, 26, 0.85) 0%,
+    rgba(45, 90, 39, 0.7) 40%,
+    rgba(26, 61, 26, 0.5) 100%
+  );
+}
+
+.nav-scrolled {
+  @apply bg-white/95 backdrop-blur-md shadow-md;
+}
+
+.cart-badge {
+  @apply absolute -top-1.5 -right-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-gold text-[10px] font-bold text-white;
+}
+
+.filter-btn {
+  @apply rounded-full px-5 py-2 text-sm font-semibold transition-all duration-200;
+}
+
+.filter-btn.active {
+  @apply bg-forest text-white shadow-md;
+}
+
+.filter-btn:not(.active) {
+  @apply bg-white/85 backdrop-blur-sm text-forest border border-wheat hover:bg-meadow/40;
+}
+
+.modal-backdrop {
+  @apply fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4;
+}
+
+.modal-panel {
+  @apply w-full max-w-lg rounded-2xl bg-white p-6 shadow-2xl max-h-[90vh] overflow-y-auto;
+}
+
+.form-input {
+  @apply w-full rounded-xl border border-wheat bg-cream/50 px-4 py-3 text-sm outline-none transition focus:border-sage focus:ring-2 focus:ring-sage/30;
+}
+
+.form-label {
+  @apply block text-sm font-semibold text-earth mb-1.5;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
