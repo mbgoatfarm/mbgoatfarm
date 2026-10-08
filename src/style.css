@@ -202,3 +202,11 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+.social-icon-footer {
+  @apply inline-flex;
+}
+
+.nav-scrolled .nav-logo-img {
+  filter: none;
+}

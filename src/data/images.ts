@@ -1,4 +1,4 @@
-/** Farm images provided by MB Goat Farm */
+/** Farm images — replace files in /public/goats/ and /public/feed/ anytime */
 export const images = {
   hero: '/goats/hero.png',
   about: '/goats/about.png',
@@ -7,20 +7,19 @@ export const images = {
   grassGround: '/goats/grass-ground.png',
 
   goats: {
-    beetal: '/goats/three-goats.png',
-    kamori: '/goats/black-goat.png',
+    beetalBW: '/goats/three-goats.png',
+    makhiCheena: '/goats/black-goat.png',
     teddy: '/goats/hero.png',
-    herdField: '/goats/farm-herd.png',
-    herdGreen: '/goats/barn-goats.png',
+    beetalQurbani: '/goats/farm-herd.png',
+    kamori: '/goats/barn-goats.png',
     desi: '/goats/two-goats-sky.png',
     barbari: '/goats/black-goat.png',
-    whiteGoat: '/goats/about.png',
-    twoGoats: '/goats/two-goats-sky.png',
+    beetalWhite: '/goats/about.png',
   },
 
   feed: {
-    hay: '/goats/barn-goats.png',
-    grain: '/goats/farm-herd.png',
-    greenFodder: '/goats/hero.png',
+    lusan: '/feed/lusan.jpg',
+    wanda: '/feed/wanda.jpg',
+    greenFodder: '/feed/green-fodder.jpg',
   },
 } as const
