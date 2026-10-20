@@ -110,10 +110,10 @@ function render(): string {
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16 md:h-20 gap-3">
           <div class="flex items-center gap-3 min-w-0">
-            ${socialIcons('social-icon hidden sm:flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition')}
-            <a href="#home" class="logo-wrap flex items-center shrink-0">
-              <img src="${LOGO_SRC}" alt="MB Goat Farm" class="h-10 md:h-12 w-auto max-w-[140px] md:max-w-[160px] object-contain nav-logo-img" />
+            <a href="#home" class="logo-wrap flex items-center shrink-0" aria-label="MB Goat Farm home">
+              <img src="${LOGO_SRC}" alt="MB Goat Farm" width="1024" height="755" decoding="async" fetchpriority="high" class="h-11 sm:h-12 md:h-14 w-auto min-w-[120px] max-w-[200px] md:max-w-[240px] object-contain nav-logo-img" />
             </a>
+            ${socialIcons('social-icon hidden sm:flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition')}
           </div>
           <div class="hidden md:flex items-center gap-8">
             <a href="#about" class="nav-link text-sm font-semibold text-white/90 hover:text-meadow transition nav-link-text">About</a>
@@ -372,7 +372,9 @@ function render(): string {
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
           <div class="lg:col-span-2">
-            <a href="#home" class="logo-wrap inline-block mb-3"><img src="${LOGO_SRC}" alt="MB Goat Farm" class="h-12 w-auto max-w-[160px] object-contain" /></a>
+            <a href="#home" class="logo-wrap logo-wrap-footer inline-block mb-3" aria-label="MB Goat Farm home">
+              <img src="${LOGO_SRC}" alt="MB Goat Farm" width="1024" height="755" decoding="async" class="h-14 sm:h-16 w-auto min-w-[140px] max-w-[220px] object-contain" />
+            </a>
             <p class="text-sm leading-relaxed text-white/60 mb-4">Healthy goats, trusted genetics, and sustainable farming for families and farmers in Faisalabad and across Punjab.</p>
             ${socialIcons('social-icon-footer h-9 w-9 inline-flex items-center justify-center rounded-full bg-white/10 text-meadow hover:bg-meadow hover:text-forest transition')}
           </div>

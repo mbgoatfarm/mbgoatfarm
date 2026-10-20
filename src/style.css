@@ -115,7 +115,11 @@
   }
 
   .logo-wrap {
-    @apply rounded-lg bg-white px-2 py-1 shadow-sm border border-white/80;
+    @apply rounded-lg bg-white px-2.5 py-1.5 shadow-md border border-red-100 ring-2 ring-white/90;
+  }
+
+  .logo-wrap-footer {
+    @apply ring-white/20 shadow-lg;
   }
 }
 
