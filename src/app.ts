@@ -23,9 +23,9 @@ function purposeLabel(purpose: GoatPurpose): string {
 
 function purposeBadgeClass(purpose: GoatPurpose): string {
   const map: Record<GoatPurpose, string> = {
-    sale: 'bg-sage/20 text-forest',
-    qurbani: 'bg-gold/20 text-earth',
-    breeding: 'bg-meadow/40 text-forest',
+    sale: 'bg-red-100 text-forest',
+    qurbani: 'bg-red-200 text-forest',
+    breeding: 'bg-red-50 text-forest border border-red-100',
   }
   return map[purpose]
 }
@@ -56,7 +56,7 @@ function contactActions(message: string, fullWidth = true): string {
     <div class="flex flex-col gap-2">
       ${callUsNow(`${w} text-center text-sm`)}
       <a href="${whatsappLink(message)}" target="_blank" rel="noopener noreferrer" class="btn-whatsapp ${w} text-center text-sm">WhatsApp Us</a>
-      <a href="#contact-form" class="btn-secondary ${w} text-center text-sm border-sage text-forest hover:bg-forest hover:text-white">Contact Form</a>
+      <a href="#contact-form" class="btn-secondary ${w} text-center text-sm">Contact Form</a>
     </div>
   `
 }
@@ -111,8 +111,8 @@ function render(): string {
         <div class="flex items-center justify-between h-16 md:h-20 gap-3">
           <div class="flex items-center gap-3 min-w-0">
             ${socialIcons('social-icon hidden sm:flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition')}
-            <a href="#home" class="flex items-center shrink-0">
-              <img src="${LOGO_SRC}" alt="MB Goat Farm" class="h-10 md:h-12 w-auto nav-logo-img" />
+            <a href="#home" class="logo-wrap flex items-center shrink-0">
+              <img src="${LOGO_SRC}" alt="MB Goat Farm" class="h-10 md:h-12 w-auto max-w-[140px] md:max-w-[160px] object-contain nav-logo-img" />
             </a>
           </div>
           <div class="hidden md:flex items-center gap-8">
@@ -150,12 +150,12 @@ function render(): string {
       </div>
       <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-0">
         <div class="max-w-2xl animate-fade-up">
-          <span class="inline-block rounded-full bg-white/15 backdrop-blur-sm border border-white/20 px-4 py-1.5 text-sm font-semibold text-meadow mb-6">
-            🌿 Sustainable Farming Since Day One
+          <span class="inline-block rounded-full bg-white/15 backdrop-blur-sm border border-white/20 px-4 py-1.5 text-sm font-semibold text-white mb-6">
+            Trusted Goat Farm Since Day One
           </span>
           <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
             Healthy Goats,<br/>
-            <span class="text-red-500">Trusted Genetics</span>
+            <span class="text-white">Trusted </span><span class="text-red-300">Genetics</span>
           </h1>
           <p class="text-lg md:text-xl text-white/85 leading-relaxed mb-8 max-w-xl">
             At MB Goat Farm, we raise healthy goats with care and honesty. Buy goats, book Qurbani animals, get fresh meat, or pick up quality animal feed — all from one trusted farm.
@@ -165,9 +165,9 @@ function render(): string {
             <a href="#contact-form" class="btn-secondary border-white/40 text-white hover:bg-white hover:text-forest text-base px-8 py-3.5">Contact Us</a>
           </div>
           <div class="flex flex-wrap gap-6 mt-12">
-            <div class="text-center"><p class="text-3xl font-extrabold text-meadow">528+</p><p class="text-sm text-white/70">Goats Raised</p></div>
-            <div class="text-center"><p class="text-3xl font-extrabold text-meadow">18+</p><p class="text-sm text-white/70">Years Experience</p></div>
-            <div class="text-center"><p class="text-3xl font-extrabold text-meadow">847+</p><p class="text-sm text-white/70">Happy Customers</p></div>
+            <div class="text-center"><p class="text-3xl font-extrabold text-white">528+</p><p class="text-sm text-white/70">Goats Raised</p></div>
+            <div class="text-center"><p class="text-3xl font-extrabold text-white">18+</p><p class="text-sm text-white/70">Years Experience</p></div>
+            <div class="text-center"><p class="text-3xl font-extrabold text-white">847+</p><p class="text-sm text-white/70">Happy Customers</p></div>
           </div>
         </div>
       </div>
@@ -192,7 +192,7 @@ function render(): string {
             </div>
             <div class="grid grid-cols-2 gap-4">
               <div class="rounded-xl bg-white/90 backdrop-blur-sm p-4 border border-wheat shadow-sm"><p class="text-2xl mb-1">🏡</p><p class="font-bold text-forest text-sm">Clean Farm</p><p class="text-xs text-earth/60">Open and well-maintained spaces</p></div>
-              <div class="rounded-xl bg-white/90 backdrop-blur-sm p-4 border border-wheat shadow-sm"><p class="text-2xl mb-1">💚</p><p class="font-bold text-forest text-sm">Healthy Feed</p><p class="text-xs text-earth/60">Green fodder and balanced diet</p></div>
+              <div class="rounded-xl bg-white/90 backdrop-blur-sm p-4 border border-wheat shadow-sm"><p class="text-2xl mb-1">🌾</p><p class="font-bold text-forest text-sm">Healthy Feed</p><p class="text-xs text-earth/60">Quality fodder and balanced diet</p></div>
               <div class="rounded-xl bg-white/90 backdrop-blur-sm p-4 border border-wheat shadow-sm"><p class="text-2xl mb-1">🩺</p><p class="font-bold text-forest text-sm">Health Checks</p><p class="text-xs text-earth/60">Regular vet care for every goat</p></div>
               <div class="rounded-xl bg-white/90 backdrop-blur-sm p-4 border border-wheat shadow-sm"><p class="text-2xl mb-1">🤝</p><p class="font-bold text-forest text-sm">Fair Dealing</p><p class="text-xs text-earth/60">Honest service, no hidden costs</p></div>
             </div>
@@ -202,7 +202,7 @@ function render(): string {
               <img src="${ABOUT_IMG}" alt="Goats at MB Goat Farm" class="w-full h-80 md:h-[480px] object-cover" />
             </div>
             <div class="absolute -bottom-6 -left-6 bg-forest text-white rounded-2xl p-5 shadow-xl max-w-[200px]">
-              <p class="text-3xl font-extrabold text-meadow">18+</p>
+              <p class="text-3xl font-extrabold text-red-200">18+</p>
               <p class="text-sm font-semibold">Years of farming with love and dedication</p>
             </div>
           </div>
@@ -253,7 +253,7 @@ function render(): string {
             { icon: '📞', title: 'Easy Contact', desc: 'Use Call Us Now or our contact form — we respond quickly.' },
             { icon: '🚚', title: 'Farm Delivery', desc: 'We can arrange delivery of goats and feed to your location when needed.' },
             { icon: '🕌', title: 'Qurbani Ready', desc: 'Special Qurbani goats fed and cared for to meet your Eid requirements.' },
-            { icon: '🌿', title: 'Green Farming', desc: 'Our goats graze on green pastures and eat natural, balanced feed daily.' },
+            { icon: '🏞️', title: 'Natural Farming', desc: 'Our goats graze on open pastures and eat natural, balanced feed daily.' },
           ].map((item) => `
             <div class="reveal card p-6 text-center">
               <p class="text-3xl mb-3">${item.icon}</p>
@@ -368,11 +368,11 @@ function render(): string {
       </div>
     </section>
 
-    <footer class="bg-[#0f2410] border-t border-meadow/20 text-white/75 py-12">
+    <footer class="bg-forest border-t border-red-400/30 text-white/75 py-12">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
           <div class="lg:col-span-2">
-            <a href="#home"><img src="${LOGO_SRC}" alt="MB Goat Farm" class="h-11 w-auto mb-3" /></a>
+            <a href="#home" class="logo-wrap inline-block mb-3"><img src="${LOGO_SRC}" alt="MB Goat Farm" class="h-12 w-auto max-w-[160px] object-contain" /></a>
             <p class="text-sm leading-relaxed text-white/60 mb-4">Healthy goats, trusted genetics, and sustainable farming for families and farmers in Faisalabad and across Punjab.</p>
             ${socialIcons('social-icon-footer h-9 w-9 inline-flex items-center justify-center rounded-full bg-white/10 text-meadow hover:bg-meadow hover:text-forest transition')}
           </div>
