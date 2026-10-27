@@ -207,7 +207,7 @@ function render(): string {
       </div>
     </section>
 
-    <section id="about" class="py-20 md:py-28 grass-pasture grass-texture">
+    <section id="about" class="py-20 md:py-28 pb-24 md:pb-28 grass-pasture grass-texture">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-inner">
         <div class="grid md:grid-cols-2 gap-12 items-center">
           <div class="reveal">
@@ -226,28 +226,27 @@ function render(): string {
               <div class="rounded-xl bg-white/90 backdrop-blur-sm p-4 border border-wheat shadow-sm"><p class="text-2xl mb-1">🤝</p><p class="font-bold text-forest text-sm">Fair Dealing</p><p class="text-xs text-earth/60">Honest service, no hidden costs</p></div>
             </div>
           </div>
-          <div class="reveal relative">
+          <div class="reveal flex flex-col gap-5">
             <div class="rounded-2xl overflow-hidden shadow-2xl">
-              <img src="${ABOUT_IMG}" alt="Goats at MB Goat Farm" class="w-full h-80 md:h-[480px] object-cover" />
+              <img src="${ABOUT_IMG}" alt="Goats at MB Goat Farm" class="w-full h-80 md:h-[420px] object-cover" />
             </div>
-            <div class="absolute -bottom-6 -left-6 bg-forest text-white rounded-2xl p-5 shadow-xl max-w-[200px]">
-              <p class="text-3xl font-extrabold text-red-200">18+</p>
-              <p class="text-sm font-semibold">Years of farming with love and dedication</p>
+            <div class="rounded-2xl bg-white border border-red-100 p-5 shadow-lg md:max-w-[260px] md:-mt-20 md:ml-4 relative z-10">
+              <p class="text-3xl font-extrabold text-forest">18+</p>
+              <p class="text-sm font-semibold text-earth/80">Years of farming with love and dedication</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="services" class="py-20 md:py-28 bg-forest text-white relative overflow-hidden">
-      <div class="absolute inset-0"><img src="${SERVICES_BG}" alt="" class="h-full w-full object-cover scale-105" /></div>
-      <div class="absolute inset-0 image-grass-overlay image-grass-overlay--soft" aria-hidden="true"></div>
-      <div class="absolute inset-0 bg-forest/82 pointer-events-none"></div>
-      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" class="py-20 md:py-28 relative overflow-hidden section-photo-nature">
+      <div class="absolute inset-0"><img src="${SERVICES_BG}" alt="" class="h-full w-full object-cover" /></div>
+      <div class="absolute inset-0 image-grass-overlay--natural" aria-hidden="true"></div>
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-inner">
         <div class="text-center mb-14 reveal">
-          <span class="inline-block text-xs font-bold uppercase tracking-[0.2em] text-meadow mb-2">What We Offer</span>
-          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mt-2 mb-4 text-white">Our Services</h2>
-          <p class="section-subtitle mx-auto text-white/70">Everything you need from a trusted goat farm — in one place.</p>
+          <span class="photo-section-eyebrow">What We Offer</span>
+          <h2 class="photo-section-title mt-3 mb-4">Our Services</h2>
+          <p class="text-lg text-white/90 max-w-2xl mx-auto drop-shadow-md">Everything you need from a trusted goat farm — in one place.</p>
         </div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           ${[
@@ -256,17 +255,17 @@ function render(): string {
             { icon: '🥩', title: 'Meat Service', desc: 'Fresh goat meat service available. Clean, halal, and farm-fresh.', link: '#contact' },
             { icon: '🌾', title: 'Animal Feed', desc: 'Dry lusan and wanda available for your goats and other animals.', link: '#feed' },
           ].map((s) => `
-            <a href="${s.link}" class="reveal card bg-white/10 backdrop-blur-sm border border-white/15 hover:bg-white/15 hover:border-white/25 p-6 text-center group">
+            <a href="${s.link}" class="reveal card bg-white/95 border-white/80 hover:border-red-100 p-6 text-center group">
               <p class="text-4xl mb-4 group-hover:animate-float">${s.icon}</p>
-              <h3 class="text-xl font-bold mb-2">${s.title}</h3>
-              <p class="text-sm text-white/70 leading-relaxed mb-4">${s.desc}</p>
-              <span class="text-meadow text-sm font-semibold">Contact us →</span>
+              <h3 class="text-xl font-bold text-forest mb-2">${s.title}</h3>
+              <p class="text-sm text-earth/70 leading-relaxed mb-4">${s.desc}</p>
+              <span class="text-forest text-sm font-semibold">Contact us →</span>
             </a>
           `).join('')}
         </div>
         <div class="text-center mt-10 reveal flex flex-wrap justify-center gap-3">
           ${callUsNow('')}
-          <a href="#contact-form" class="btn-secondary border-white/40 text-white hover:bg-white hover:text-forest">Contact Form</a>
+          <a href="#contact-form" class="btn-secondary">Contact Form</a>
         </div>
       </div>
     </section>
@@ -316,9 +315,9 @@ function render(): string {
       </div>
     </section>
 
-    <section class="relative py-20 overflow-hidden">
+    <section class="relative py-20 md:py-24 overflow-hidden section-photo-nature">
       <img src="${MEAT_IMG}" alt="Fresh goat meat from MB Goat Farm" class="absolute inset-0 h-full w-full object-cover" />
-      <div class="absolute inset-0 image-grass-overlay" aria-hidden="true"></div>
+      <div class="absolute inset-0 image-grass-overlay--natural image-grass-overlay--text" aria-hidden="true"></div>
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
         <span class="text-4xl mb-4 block">🥩</span>
         <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Fresh Goat Meat Service</h2>
@@ -365,46 +364,46 @@ function render(): string {
       </div>
     </section>
 
-    <section id="contact" class="py-20 md:py-28 bg-forest text-white">
+    <section id="contact" class="py-16 md:py-24 bg-forest text-white">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-10 reveal">
+        <div class="text-center mb-8 md:mb-10 reveal">
           <span class="text-meadow font-bold text-sm uppercase tracking-wider">Get in Touch</span>
           <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">Contact MB Goat Farm</h2>
-          <p class="text-white/75 leading-relaxed">Need goats, Qurbani animals, fresh meat, or feed? Call us or send a message — we reply quickly.</p>
+          <p class="text-white/75 leading-relaxed max-w-xl mx-auto">Need goats, Qurbani animals, fresh meat, or feed? Call us or send a message — we reply quickly.</p>
         </div>
-        <div class="reveal rounded-2xl bg-white/10 border border-white/15 p-8 text-center mb-10">
-          <div class="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto mb-8">
-            ${callUsNow('flex-1')}
-            <a href="${whatsappLink('Hi MB Goat Farm, I want to get in touch.')}" target="_blank" rel="noopener noreferrer" class="btn-whatsapp flex-1">WhatsApp Us</a>
+        <div class="reveal contact-panel rounded-3xl bg-white text-earth shadow-2xl p-6 md:p-10 space-y-8">
+          <div class="flex flex-col sm:flex-row gap-3 justify-center max-w-lg mx-auto">
+            ${callUsNow('flex-1 justify-center')}
+            <a href="${whatsappLink('Hi MB Goat Farm, I want to get in touch.')}" target="_blank" rel="noopener noreferrer" class="btn-whatsapp flex-1 justify-center">WhatsApp Us</a>
           </div>
-          <div class="grid sm:grid-cols-3 gap-4 text-left">
-            <div class="rounded-xl bg-white/5 border border-white/10 p-4"><span class="text-xl block mb-1">📧</span><p class="font-bold text-sm">Email</p><p class="text-white/70 text-sm">${FARM_EMAIL}</p></div>
-            <div class="rounded-xl bg-white/5 border border-white/10 p-4"><span class="text-xl block mb-1">📍</span><p class="font-bold text-sm">Farm Location</p><p class="text-white/70 text-sm">${FARM_ADDRESS}</p></div>
-            <div class="rounded-xl bg-white/5 border border-white/10 p-4"><span class="text-xl block mb-1">🕐</span><p class="font-bold text-sm">Farm Hours</p><p class="text-white/70 text-sm">Mon – Sat: 8 AM – 6 PM</p><p class="text-white/70 text-sm">Sun: 9 AM – 2 PM</p></div>
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div class="rounded-xl bg-red-50/80 border border-red-100 p-4"><span class="text-xl block mb-1">📧</span><p class="font-bold text-sm text-forest">Email</p><p class="text-earth/70 text-sm">${FARM_EMAIL}</p></div>
+            <div class="rounded-xl bg-red-50/80 border border-red-100 p-4"><span class="text-xl block mb-1">📍</span><p class="font-bold text-sm text-forest">Farm Location</p><p class="text-earth/70 text-sm">${FARM_ADDRESS}</p></div>
+            <div class="rounded-xl bg-red-50/80 border border-red-100 p-4"><span class="text-xl block mb-1">🕐</span><p class="font-bold text-sm text-forest">Farm Hours</p><p class="text-earth/70 text-sm">Mon – Sat: 8 AM – 6 PM</p><p class="text-earth/70 text-sm">Sun: 9 AM – 2 PM</p></div>
           </div>
+          <form id="contact-form" class="border-t border-wheat pt-8 space-y-4">
+            <h3 class="text-xl font-bold text-center text-forest mb-2">Send Us a Message</h3>
+            <div>
+              <label class="form-label" for="contact-name">Your Name</label>
+              <input class="form-input" id="contact-name" type="text" placeholder="Enter your name" required />
+            </div>
+            <div>
+              <label class="form-label" for="contact-message">Message</label>
+              <textarea class="form-input resize-none" id="contact-message" rows="4" placeholder="Tell us what you need (goat breed, Qurbani, meat, feed...)" required></textarea>
+            </div>
+            <button type="submit" class="btn-gold w-full">Send Message</button>
+            <p id="contact-success" class="hidden text-forest text-sm text-center font-semibold">✅ Message sent! We will get back to you soon.</p>
+          </form>
         </div>
-        <form id="contact-form" class="reveal bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/10 space-y-4">
-          <h3 class="text-xl font-bold text-center mb-2">Send Us a Message</h3>
-          <div>
-            <label class="form-label text-white/90" for="contact-name">Your Name</label>
-            <input class="form-input bg-white/10 border-white/20 text-white placeholder:text-white/40" id="contact-name" type="text" placeholder="Enter your name" required />
-          </div>
-          <div>
-            <label class="form-label text-white/90" for="contact-message">Message</label>
-            <textarea class="form-input bg-white/10 border-white/20 text-white placeholder:text-white/40 resize-none" id="contact-message" rows="4" placeholder="Tell us what you need (goat breed, Qurbani, meat, feed...)" required></textarea>
-          </div>
-          <button type="submit" class="btn-gold w-full">Send Message</button>
-          <p id="contact-success" class="hidden text-meadow text-sm text-center font-semibold">✅ Message sent! We will get back to you soon.</p>
-        </form>
       </div>
     </section>
 
-    <footer class="bg-forest border-t border-red-400/30 text-white/75 py-12">
+    <footer class="bg-forest text-white/75 pt-10 pb-12 border-t-4 border-white/20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
           <div class="lg:col-span-2">
-            <a href="#home" class="site-logo site-logo-footer inline-block mb-3" aria-label="MB Goat Farm home">
-              <img src="${LOGO_SRC}" alt="MB Goat Farm" width="1024" height="755" decoding="async" class="h-14 sm:h-16 w-auto min-w-[140px] max-w-[220px] object-contain footer-logo-img" />
+            <a href="#home" class="site-logo footer-logo-badge inline-block mb-4" aria-label="MB Goat Farm home">
+              <img src="${LOGO_SRC}" alt="MB Goat Farm" width="1024" height="755" decoding="async" class="h-12 sm:h-14 w-auto max-w-[200px] object-contain footer-logo-img" />
             </a>
             <p class="text-sm leading-relaxed text-white/60 mb-4">Healthy goats, trusted genetics, and sustainable farming for families and farmers in Faisalabad and across Punjab.</p>
             ${socialIcons('social-icon-footer h-9 w-9 inline-flex items-center justify-center rounded-full bg-white/10 text-meadow hover:bg-meadow hover:text-forest transition')}
