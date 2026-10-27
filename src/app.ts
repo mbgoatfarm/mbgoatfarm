@@ -109,7 +109,7 @@ function render(): string {
     <nav id="navbar" class="nav-on-hero fixed top-0 left-0 right-0 z-50 transition-all duration-300">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center h-16 md:h-20 gap-3 md:gap-4 w-full">
-          <a href="#home" class="logo-wrap flex items-center shrink-0 max-w-[52vw] sm:max-w-none" aria-label="MB Goat Farm home">
+          <a href="#home" class="site-logo flex items-center shrink-0 max-w-[52vw] sm:max-w-none" aria-label="MB Goat Farm home">
             <img src="${LOGO_SRC}" alt="MB Goat Farm" width="1024" height="755" decoding="async" fetchpriority="high" class="h-10 sm:h-11 md:h-12 w-auto max-w-[160px] md:max-w-[190px] object-contain nav-logo-img" />
           </a>
           <div id="nav-links" class="hidden min-[800px]:flex flex-1 items-center justify-center gap-4 xl:gap-8 min-w-0 px-1 lg:px-2">
@@ -240,8 +240,9 @@ function render(): string {
     </section>
 
     <section id="services" class="py-20 md:py-28 bg-forest text-white relative overflow-hidden">
-      <div class="absolute inset-0 opacity-[0.12]"><img src="${SERVICES_BG}" alt="" class="h-full w-full object-cover" /></div>
-      <div class="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20 pointer-events-none"></div>
+      <div class="absolute inset-0"><img src="${SERVICES_BG}" alt="" class="h-full w-full object-cover scale-105" /></div>
+      <div class="absolute inset-0 image-grass-overlay image-grass-overlay--soft" aria-hidden="true"></div>
+      <div class="absolute inset-0 bg-forest/82 pointer-events-none"></div>
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-14 reveal">
           <span class="inline-block text-xs font-bold uppercase tracking-[0.2em] text-meadow mb-2">What We Offer</span>
@@ -317,7 +318,7 @@ function render(): string {
 
     <section class="relative py-20 overflow-hidden">
       <img src="${MEAT_IMG}" alt="Fresh goat meat from MB Goat Farm" class="absolute inset-0 h-full w-full object-cover" />
-      <div class="absolute inset-0 bg-forest/80"></div>
+      <div class="absolute inset-0 image-grass-overlay" aria-hidden="true"></div>
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
         <span class="text-4xl mb-4 block">🥩</span>
         <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Fresh Goat Meat Service</h2>
@@ -402,8 +403,8 @@ function render(): string {
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
           <div class="lg:col-span-2">
-            <a href="#home" class="logo-wrap logo-wrap-footer inline-block mb-3" aria-label="MB Goat Farm home">
-              <img src="${LOGO_SRC}" alt="MB Goat Farm" width="1024" height="755" decoding="async" class="h-14 sm:h-16 w-auto min-w-[140px] max-w-[220px] object-contain" />
+            <a href="#home" class="site-logo site-logo-footer inline-block mb-3" aria-label="MB Goat Farm home">
+              <img src="${LOGO_SRC}" alt="MB Goat Farm" width="1024" height="755" decoding="async" class="h-14 sm:h-16 w-auto min-w-[140px] max-w-[220px] object-contain footer-logo-img" />
             </a>
             <p class="text-sm leading-relaxed text-white/60 mb-4">Healthy goats, trusted genetics, and sustainable farming for families and farmers in Faisalabad and across Punjab.</p>
             ${socialIcons('social-icon-footer h-9 w-9 inline-flex items-center justify-center rounded-full bg-white/10 text-meadow hover:bg-meadow hover:text-forest transition')}
