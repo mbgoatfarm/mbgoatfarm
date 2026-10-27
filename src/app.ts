@@ -106,7 +106,7 @@ function filteredGoats() {
 
 function render(): string {
   return `
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300">
+    <nav id="navbar" class="nav-on-hero fixed top-0 left-0 right-0 z-40 transition-all duration-300">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16 md:h-20 gap-3">
           <div class="flex items-center gap-3 min-w-0">
@@ -116,11 +116,11 @@ function render(): string {
             ${socialIcons('social-icon hidden sm:flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition')}
           </div>
           <div class="hidden md:flex items-center gap-8">
-            <a href="#about" class="nav-link text-sm font-semibold text-white/90 hover:text-meadow transition nav-link-text">About</a>
-            <a href="#services" class="nav-link text-sm font-semibold text-white/90 hover:text-meadow transition nav-link-text">Services</a>
-            <a href="#shop" class="nav-link text-sm font-semibold text-white/90 hover:text-meadow transition nav-link-text">Goats</a>
-            <a href="#feed" class="nav-link text-sm font-semibold text-white/90 hover:text-meadow transition nav-link-text">Feed</a>
-            <a href="#contact" class="nav-link text-sm font-semibold text-white/90 hover:text-meadow transition nav-link-text">Contact</a>
+            <a href="#about" class="nav-link text-sm font-semibold transition nav-link-text">About</a>
+            <a href="#services" class="nav-link text-sm font-semibold transition nav-link-text">Services</a>
+            <a href="#shop" class="nav-link text-sm font-semibold transition nav-link-text">Goats</a>
+            <a href="#feed" class="nav-link text-sm font-semibold transition nav-link-text">Feed</a>
+            <a href="#contact" class="nav-link text-sm font-semibold transition nav-link-text">Contact</a>
           </div>
           <div class="flex items-center gap-2">
             ${callUsNow('hidden sm:inline-flex text-xs px-4 py-2 nav-call-btn')}
@@ -143,37 +143,68 @@ function render(): string {
       </div>
     </nav>
 
-    <section id="home" class="relative min-h-screen flex items-center">
+    <section id="home" class="hero-section relative min-h-[100svh] flex items-center overflow-hidden">
       <div class="absolute inset-0">
-        <img src="${HERO_IMG}" alt="Goats at MB Goat Farm" class="h-full w-full object-cover" />
+        <img src="${HERO_IMG}" alt="Goats at MB Goat Farm" class="hero-bg-img h-full w-full object-cover" />
         <div class="absolute inset-0 hero-overlay"></div>
+        <div class="hero-vignette"></div>
       </div>
-      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-0">
-        <div class="max-w-2xl animate-fade-up">
-          <span class="inline-block rounded-full bg-white/15 backdrop-blur-sm border border-white/20 px-4 py-1.5 text-sm font-semibold text-white mb-6">
-            Trusted Goat Farm Since Day One
-          </span>
-          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
-            Healthy Goats,<br/>
-            <span class="text-white">Trusted </span><span class="text-red-300">Genetics</span>
-          </h1>
-          <p class="text-lg md:text-xl text-white/85 leading-relaxed mb-8 max-w-xl">
-            At MB Goat Farm, we raise healthy goats with care and honesty. Buy goats, book Qurbani animals, get fresh meat, or pick up quality animal feed — all from one trusted farm.
-          </p>
-          <div class="flex flex-wrap gap-4">
-            ${callUsNow('text-base px-8 py-3.5')}
-            <a href="#contact-form" class="btn-secondary border-white/40 text-white hover:bg-white hover:text-forest text-base px-8 py-3.5">Contact Us</a>
+      <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-36 md:pt-32 md:pb-40">
+        <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          <div class="lg:col-span-7 animate-fade-up">
+            <span class="hero-badge mb-6">
+              <span class="hero-badge-dot" aria-hidden="true"></span>
+              Trusted farm · Faisalabad, Punjab
+            </span>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl xl:text-[4.25rem] font-bold text-white leading-[1.08] mb-6">
+              Healthy Goats on Open Pasture,<br/>
+              <span class="text-white/95">Trusted </span><span class="hero-accent">Genetics</span>
+            </h1>
+            <p class="text-lg md:text-xl text-white/88 leading-relaxed mb-8 max-w-xl">
+              MB Goat Farm raises strong, healthy goats with honest service. Buy livestock, book Qurbani, order fresh meat, or stock up on quality feed — all from one place you can trust.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              ${callUsNow('btn-hero-primary')}
+              <a href="#contact-form" class="btn-hero-ghost">Contact Us</a>
+            </div>
+            <div class="grid grid-cols-3 gap-3 sm:gap-4 mt-10 lg:hidden max-w-md">
+              <div class="hero-stat"><p class="text-2xl font-extrabold text-white">528+</p><p class="text-xs text-white/70 mt-1">Goats Raised</p></div>
+              <div class="hero-stat"><p class="text-2xl font-extrabold text-white">18+</p><p class="text-xs text-white/70 mt-1">Years</p></div>
+              <div class="hero-stat"><p class="text-2xl font-extrabold text-white">847+</p><p class="text-xs text-white/70 mt-1">Customers</p></div>
+            </div>
           </div>
-          <div class="flex flex-wrap gap-6 mt-12">
-            <div class="text-center"><p class="text-3xl font-extrabold text-white">528+</p><p class="text-sm text-white/70">Goats Raised</p></div>
-            <div class="text-center"><p class="text-3xl font-extrabold text-white">18+</p><p class="text-sm text-white/70">Years Experience</p></div>
-            <div class="text-center"><p class="text-3xl font-extrabold text-white">847+</p><p class="text-sm text-white/70">Happy Customers</p></div>
+          <div class="lg:col-span-5 hidden lg:block animate-fade-up" style="animation-delay: 0.12s">
+            <div class="hero-trust-panel">
+              <div class="flex items-start justify-between gap-4 mb-6 pb-6 border-b border-white/15">
+                <div>
+                  <p class="text-xs font-bold uppercase tracking-widest text-farm-mist/90 mb-1">MB Goat Farm</p>
+                  <p class="text-lg font-semibold text-white">Where the pasture meets premium care</p>
+                </div>
+                <span class="rounded-full bg-forest px-3 py-1 text-xs font-bold text-white shadow-md">Since 2007</span>
+              </div>
+              <div class="grid grid-cols-3 gap-3 mb-6">
+                <div class="hero-stat"><p class="text-3xl font-extrabold text-white">528+</p><p class="text-xs text-white/65 mt-1">Goats Raised</p></div>
+                <div class="hero-stat"><p class="trust-accent">18+</p><p class="text-xs text-white/65 mt-1">Years Experience</p></div>
+                <div class="hero-stat"><p class="text-3xl font-extrabold text-white">847+</p><p class="text-xs text-white/65 mt-1">Happy Customers</p></div>
+              </div>
+              <ul class="space-y-3 text-sm text-white/85">
+                <li class="flex gap-2"><span class="text-red-300 font-bold">✓</span> Beetal, Makhni Cheena, Kamori & more</li>
+                <li class="flex gap-2"><span class="text-red-300 font-bold">✓</span> Qurbani booking & farm-fresh meat</li>
+                <li class="flex gap-2"><span class="text-red-300 font-bold">✓</span> Lusan, wanda & green fodder</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
-      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <a href="#about" class="text-white/60 hover:text-white transition" aria-label="Scroll to about">
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+      <div class="hero-wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-12 md:h-16">
+          <path d="M0 40L60 45C120 50 240 60 360 55C480 50 600 30 720 25C840 20 960 30 1080 38C1200 45 1320 50 1380 52.5L1440 55V80H0V40Z" fill="currentColor"/>
+        </svg>
+      </div>
+      <div class="absolute bottom-20 md:bottom-24 left-1/2 -translate-x-1/2 z-20 animate-bounce">
+        <a href="#about" class="flex flex-col items-center gap-1 text-white/50 hover:text-white transition text-xs font-semibold uppercase tracking-wider" aria-label="Scroll to about">
+          <span>Explore</span>
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
         </a>
       </div>
     </section>
@@ -182,7 +213,7 @@ function render(): string {
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-inner">
         <div class="grid md:grid-cols-2 gap-12 items-center">
           <div class="reveal">
-            <span class="text-sage font-bold text-sm uppercase tracking-wider">About Us</span>
+            <span class="section-eyebrow">About Us</span>
             <h2 class="section-title mt-2 mb-6">A Farm Built on Trust & Care</h2>
             <p class="text-earth/80 leading-relaxed mb-4">MB Goat Farm is a trusted goat farm where customers can find healthy goats, quality livestock, fresh goat meat service, and dry animal feed.</p>
             <p class="text-earth/80 leading-relaxed mb-6">We believe in quality, honesty, and customer satisfaction. Our goats are raised with proper care, clean feeding, and attention to health.</p>
@@ -211,11 +242,12 @@ function render(): string {
     </section>
 
     <section id="services" class="py-20 md:py-28 bg-forest text-white relative overflow-hidden">
-      <div class="absolute inset-0 opacity-10"><img src="${SERVICES_BG}" alt="" class="h-full w-full object-cover" /></div>
+      <div class="absolute inset-0 opacity-[0.12]"><img src="${SERVICES_BG}" alt="" class="h-full w-full object-cover" /></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20 pointer-events-none"></div>
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-14 reveal">
-          <span class="text-meadow font-bold text-sm uppercase tracking-wider">What We Offer</span>
-          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mt-2 mb-4">Our Services</h2>
+          <span class="inline-block text-xs font-bold uppercase tracking-[0.2em] text-meadow mb-2">What We Offer</span>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mt-2 mb-4 text-white">Our Services</h2>
           <p class="section-subtitle mx-auto text-white/70">Everything you need from a trusted goat farm — in one place.</p>
         </div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -225,7 +257,7 @@ function render(): string {
             { icon: '🥩', title: 'Meat Service', desc: 'Fresh goat meat service available. Clean, halal, and farm-fresh.', link: '#contact' },
             { icon: '🌾', title: 'Animal Feed', desc: 'Dry lusan and wanda available for your goats and other animals.', link: '#feed' },
           ].map((s) => `
-            <a href="${s.link}" class="reveal card bg-white/10 backdrop-blur-sm border-white/10 hover:bg-white/15 p-6 text-center group">
+            <a href="${s.link}" class="reveal card bg-white/10 backdrop-blur-sm border border-white/15 hover:bg-white/15 hover:border-white/25 p-6 text-center group">
               <p class="text-4xl mb-4 group-hover:animate-float">${s.icon}</p>
               <h3 class="text-xl font-bold mb-2">${s.title}</h3>
               <p class="text-sm text-white/70 leading-relaxed mb-4">${s.desc}</p>
@@ -243,7 +275,7 @@ function render(): string {
     <section class="py-20 md:py-28 grass-field grass-texture">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-inner">
         <div class="text-center mb-14 reveal">
-          <span class="text-sage font-bold text-sm uppercase tracking-wider">Why Us</span>
+          <span class="section-eyebrow">Why Us</span>
           <h2 class="section-title mt-2 mb-4">Why Choose MB Goat Farm?</h2>
         </div>
         <div class="grid md:grid-cols-3 gap-8">
@@ -268,7 +300,7 @@ function render(): string {
     <section id="shop" class="py-20 md:py-28 grass-field grass-texture">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-inner">
         <div class="text-center mb-10 reveal">
-          <span class="text-sage font-bold text-sm uppercase tracking-wider">Our Goats</span>
+          <span class="section-eyebrow">Our Goats</span>
           <h2 class="section-title mt-2 mb-4">Buy or Book a Goat</h2>
           <p class="section-subtitle mx-auto">Browse by breed type. Tap Call Us Now or send a message through our contact form.</p>
         </div>
@@ -302,7 +334,7 @@ function render(): string {
     <section id="feed" class="py-20 md:py-28 grass-pasture grass-texture">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-inner">
         <div class="text-center mb-10 reveal">
-          <span class="text-sage font-bold text-sm uppercase tracking-wider">Animal Feed</span>
+          <span class="section-eyebrow">Animal Feed</span>
           <h2 class="section-title mt-2 mb-4">Feed for Your Animals</h2>
           <p class="section-subtitle mx-auto">Dry lusan, wanda, and green fodder — contact us to place your order.</p>
         </div>
@@ -315,7 +347,7 @@ function render(): string {
     <section class="py-20 md:py-28 grass-pattern grass-texture">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-inner">
         <div class="text-center mb-14 reveal">
-          <span class="text-sage font-bold text-sm uppercase tracking-wider">Reviews</span>
+          <span class="section-eyebrow">Reviews</span>
           <h2 class="section-title mt-2 mb-4">What Our Customers Say</h2>
         </div>
         <div class="grid md:grid-cols-3 gap-6">
@@ -461,9 +493,11 @@ function bindEvents(): void {
     if (!navbar) return
     const scrolled = window.scrollY > 60
     navbar.classList.toggle('nav-scrolled', scrolled)
+    navbar.classList.toggle('nav-on-hero', !scrolled)
     navbar.querySelectorAll('.nav-link-text').forEach((el) => {
       el.classList.toggle('text-forest', scrolled)
-      el.classList.toggle('text-white/90', !scrolled)
+      el.classList.toggle('hover:text-forest-light', scrolled)
+      if (scrolled) el.classList.remove('text-white/90')
     })
     navbar.querySelectorAll('.nav-menu-icon').forEach((el) => {
       el.classList.toggle('text-forest', scrolled)
