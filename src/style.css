@@ -218,21 +218,45 @@
 }
 
 #navbar {
-  @apply relative;
+  @apply relative transition-[background-color,box-shadow,border-color,backdrop-filter] duration-300 ease-out;
 }
 
+/* At top of page: see-through over hero (light scrim for readability only) */
 .nav-on-hero {
-  background: linear-gradient(to bottom, rgba(15, 45, 28, 0.92), rgba(15, 45, 28, 0.72));
-  @apply backdrop-blur-md border-b border-white/15 shadow-lg shadow-black/10;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: none;
 }
 
-.nav-scrolled {
-  @apply bg-white/95 backdrop-blur-md shadow-md border-b border-red-100;
+.nav-on-hero .logo-wrap {
+  @apply bg-white/95 shadow-md border-white/90 ring-2 ring-white/50;
 }
 
 .nav-on-hero .nav-link-text {
-  @apply text-white hover:text-white;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  @apply text-white hover:text-white/90;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+}
+
+.nav-on-hero .nav-menu-btn {
+  @apply border-white/35 bg-white/10 hover:bg-white/20;
+}
+
+.nav-on-hero .nav-menu-icon {
+  @apply text-white;
+}
+
+/* After scroll: clean white bar + brand red links (matches logo) */
+.nav-scrolled {
+  @apply bg-white/98 backdrop-blur-lg shadow-md;
+  border-bottom: 1px solid rgba(185, 28, 28, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.nav-scrolled .logo-wrap {
+  @apply bg-white shadow-sm border-red-100 ring-0;
 }
 
 .nav-scrolled .nav-link-text {
@@ -241,7 +265,7 @@
 }
 
 .nav-scrolled .nav-menu-btn {
-  @apply border-forest/20 bg-forest/10 hover:bg-forest/15;
+  @apply border-forest/25 bg-red-50 hover:bg-red-100;
 }
 
 .nav-scrolled .nav-menu-icon {
@@ -249,11 +273,15 @@
 }
 
 .nav-menu-btn-scrolled {
-  @apply border-forest/20 bg-forest/10;
+  @apply border-forest/25 bg-red-50;
 }
 
 .nav-scrolled .nav-call-btn {
   @apply shadow-sm;
+}
+
+.nav-scrolled .social-icon {
+  @apply bg-red-50 text-forest hover:bg-red-100;
 }
 
 .filter-btn {

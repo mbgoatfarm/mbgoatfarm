@@ -112,23 +112,23 @@ function render(): string {
           <a href="#home" class="logo-wrap flex items-center shrink-0 max-w-[52vw] sm:max-w-none" aria-label="MB Goat Farm home">
             <img src="${LOGO_SRC}" alt="MB Goat Farm" width="1024" height="755" decoding="async" fetchpriority="high" class="h-10 sm:h-11 md:h-12 w-auto max-w-[160px] md:max-w-[190px] object-contain nav-logo-img" />
           </a>
-          <div id="nav-links" class="hidden md:flex flex-1 items-center justify-center gap-5 lg:gap-8 min-w-0 px-2">
-            <a href="#about" class="nav-link whitespace-nowrap text-sm font-semibold transition nav-link-text">About</a>
-            <a href="#services" class="nav-link whitespace-nowrap text-sm font-semibold transition nav-link-text">Services</a>
-            <a href="#shop" class="nav-link whitespace-nowrap text-sm font-semibold transition nav-link-text">Goats</a>
-            <a href="#feed" class="nav-link whitespace-nowrap text-sm font-semibold transition nav-link-text">Feed</a>
-            <a href="#contact" class="nav-link whitespace-nowrap text-sm font-semibold transition nav-link-text">Contact</a>
+          <div id="nav-links" class="hidden min-[800px]:flex flex-1 items-center justify-center gap-4 xl:gap-8 min-w-0 px-1 lg:px-2">
+            <a href="#about" class="nav-link whitespace-nowrap text-xs lg:text-sm font-semibold transition nav-link-text">About</a>
+            <a href="#services" class="nav-link whitespace-nowrap text-xs lg:text-sm font-semibold transition nav-link-text">Services</a>
+            <a href="#shop" class="nav-link whitespace-nowrap text-xs lg:text-sm font-semibold transition nav-link-text">Goats</a>
+            <a href="#feed" class="nav-link whitespace-nowrap text-xs lg:text-sm font-semibold transition nav-link-text">Feed</a>
+            <a href="#contact" class="nav-link whitespace-nowrap text-xs lg:text-sm font-semibold transition nav-link-text">Contact</a>
           </div>
           <div class="flex items-center gap-2 shrink-0 ml-auto">
             ${socialIcons('social-icon hidden lg:flex h-8 w-8 items-center justify-center rounded-full bg-white/15 text-white hover:bg-white/25 transition')}
             ${callUsNow('inline-flex text-xs px-3 py-2 sm:px-4 sm:py-2.5 nav-call-btn')}
-            <button id="mobile-menu-btn" type="button" class="md:hidden rounded-full p-2.5 border border-white/25 bg-white/15 hover:bg-white/25 transition nav-menu-btn" aria-label="Open menu" aria-expanded="false">
+            <button id="mobile-menu-btn" type="button" class="min-[800px]:hidden rounded-full p-2.5 border transition nav-menu-btn" aria-label="Open menu" aria-expanded="false">
               <svg class="h-5 w-5 text-white nav-menu-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
             </button>
           </div>
         </div>
       </div>
-      <div id="mobile-menu" class="hidden md:hidden absolute left-0 right-0 top-full bg-white border-t border-wheat shadow-xl z-50">
+      <div id="mobile-menu" class="hidden min-[800px]:hidden absolute left-0 right-0 top-full bg-white border-t border-wheat shadow-xl z-50">
         <div class="px-4 py-4 flex flex-col gap-3">
           <div class="flex justify-center pb-2">${socialIcons('social-icon-footer h-9 w-9 flex items-center justify-center rounded-full bg-forest/10 text-forest')}</div>
           <a href="#about" class="mobile-nav-link text-forest font-semibold py-2">About</a>
@@ -492,7 +492,7 @@ function bindEvents(): void {
   const navbar = document.getElementById('navbar')
   const updateNavbar = (): void => {
     if (!navbar) return
-    const scrolled = window.scrollY > 60
+    const scrolled = window.scrollY > 48
     navbar.classList.toggle('nav-scrolled', scrolled)
     navbar.classList.toggle('nav-on-hero', !scrolled)
     navbar.querySelectorAll('.nav-link-text').forEach((el) => {
