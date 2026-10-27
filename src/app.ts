@@ -106,31 +106,29 @@ function filteredGoats() {
 
 function render(): string {
   return `
-    <nav id="navbar" class="nav-on-hero fixed top-0 left-0 right-0 z-40 transition-all duration-300">
+    <nav id="navbar" class="nav-on-hero fixed top-0 left-0 right-0 z-50 transition-all duration-300">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16 md:h-20 gap-3">
-          <div class="flex items-center gap-3 min-w-0">
-            <a href="#home" class="logo-wrap flex items-center shrink-0" aria-label="MB Goat Farm home">
-              <img src="${LOGO_SRC}" alt="MB Goat Farm" width="1024" height="755" decoding="async" fetchpriority="high" class="h-11 sm:h-12 md:h-14 w-auto min-w-[120px] max-w-[200px] md:max-w-[240px] object-contain nav-logo-img" />
-            </a>
-            ${socialIcons('social-icon hidden sm:flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition')}
+        <div class="flex items-center h-16 md:h-20 gap-3 md:gap-4 w-full">
+          <a href="#home" class="logo-wrap flex items-center shrink-0 max-w-[52vw] sm:max-w-none" aria-label="MB Goat Farm home">
+            <img src="${LOGO_SRC}" alt="MB Goat Farm" width="1024" height="755" decoding="async" fetchpriority="high" class="h-10 sm:h-11 md:h-12 w-auto max-w-[160px] md:max-w-[190px] object-contain nav-logo-img" />
+          </a>
+          <div id="nav-links" class="hidden md:flex flex-1 items-center justify-center gap-5 lg:gap-8 min-w-0 px-2">
+            <a href="#about" class="nav-link whitespace-nowrap text-sm font-semibold transition nav-link-text">About</a>
+            <a href="#services" class="nav-link whitespace-nowrap text-sm font-semibold transition nav-link-text">Services</a>
+            <a href="#shop" class="nav-link whitespace-nowrap text-sm font-semibold transition nav-link-text">Goats</a>
+            <a href="#feed" class="nav-link whitespace-nowrap text-sm font-semibold transition nav-link-text">Feed</a>
+            <a href="#contact" class="nav-link whitespace-nowrap text-sm font-semibold transition nav-link-text">Contact</a>
           </div>
-          <div class="hidden md:flex items-center gap-8">
-            <a href="#about" class="nav-link text-sm font-semibold transition nav-link-text">About</a>
-            <a href="#services" class="nav-link text-sm font-semibold transition nav-link-text">Services</a>
-            <a href="#shop" class="nav-link text-sm font-semibold transition nav-link-text">Goats</a>
-            <a href="#feed" class="nav-link text-sm font-semibold transition nav-link-text">Feed</a>
-            <a href="#contact" class="nav-link text-sm font-semibold transition nav-link-text">Contact</a>
-          </div>
-          <div class="flex items-center gap-2">
-            ${callUsNow('hidden sm:inline-flex text-xs px-4 py-2 nav-call-btn')}
-            <button id="mobile-menu-btn" class="md:hidden rounded-full p-2.5 bg-white/10 hover:bg-white/20 transition" aria-label="Open menu">
+          <div class="flex items-center gap-2 shrink-0 ml-auto">
+            ${socialIcons('social-icon hidden lg:flex h-8 w-8 items-center justify-center rounded-full bg-white/15 text-white hover:bg-white/25 transition')}
+            ${callUsNow('inline-flex text-xs px-3 py-2 sm:px-4 sm:py-2.5 nav-call-btn')}
+            <button id="mobile-menu-btn" type="button" class="md:hidden rounded-full p-2.5 border border-white/25 bg-white/15 hover:bg-white/25 transition nav-menu-btn" aria-label="Open menu" aria-expanded="false">
               <svg class="h-5 w-5 text-white nav-menu-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
             </button>
           </div>
         </div>
       </div>
-      <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-wheat shadow-lg">
+      <div id="mobile-menu" class="hidden md:hidden absolute left-0 right-0 top-full bg-white border-t border-wheat shadow-xl z-50">
         <div class="px-4 py-4 flex flex-col gap-3">
           <div class="flex justify-center pb-2">${socialIcons('social-icon-footer h-9 w-9 flex items-center justify-center rounded-full bg-forest/10 text-forest')}</div>
           <a href="#about" class="mobile-nav-link text-forest font-semibold py-2">About</a>
@@ -201,8 +199,8 @@ function render(): string {
           <path d="M0 40L60 45C120 50 240 60 360 55C480 50 600 30 720 25C840 20 960 30 1080 38C1200 45 1320 50 1380 52.5L1440 55V80H0V40Z" fill="currentColor"/>
         </svg>
       </div>
-      <div class="absolute bottom-20 md:bottom-24 left-1/2 -translate-x-1/2 z-20 animate-bounce">
-        <a href="#about" class="flex flex-col items-center gap-1 text-white/50 hover:text-white transition text-xs font-semibold uppercase tracking-wider" aria-label="Scroll to about">
+      <div class="absolute bottom-[4.75rem] md:bottom-[5.25rem] left-1/2 -translate-x-1/2 z-30 pointer-events-none hidden sm:block">
+        <a href="#about" class="hero-scroll-hint pointer-events-auto flex flex-col items-center gap-1 text-white/60 hover:text-white transition text-xs font-semibold uppercase tracking-wider animate-bounce" aria-label="Scroll to about">
           <span>Explore</span>
           <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
         </a>
@@ -469,7 +467,10 @@ function updateGoatGrid(): void {
 
 function bindEvents(): void {
   document.getElementById('mobile-menu-btn')?.addEventListener('click', () => {
-    document.getElementById('mobile-menu')?.classList.toggle('hidden')
+    const menu = document.getElementById('mobile-menu')
+    const btn = document.getElementById('mobile-menu-btn')
+    const open = menu?.classList.toggle('hidden') === false
+    btn?.setAttribute('aria-expanded', open ? 'true' : 'false')
   })
   document.querySelectorAll('.mobile-nav-link').forEach((link) => {
     link.addEventListener('click', () => document.getElementById('mobile-menu')?.classList.add('hidden'))
@@ -489,7 +490,7 @@ function bindEvents(): void {
   })
 
   const navbar = document.getElementById('navbar')
-  window.addEventListener('scroll', () => {
+  const updateNavbar = (): void => {
     if (!navbar) return
     const scrolled = window.scrollY > 60
     navbar.classList.toggle('nav-scrolled', scrolled)
@@ -497,19 +498,23 @@ function bindEvents(): void {
     navbar.querySelectorAll('.nav-link-text').forEach((el) => {
       el.classList.toggle('text-forest', scrolled)
       el.classList.toggle('hover:text-forest-light', scrolled)
-      if (scrolled) el.classList.remove('text-white/90')
     })
     navbar.querySelectorAll('.nav-menu-icon').forEach((el) => {
       el.classList.toggle('text-forest', scrolled)
       el.classList.toggle('text-white', !scrolled)
     })
+    navbar.querySelectorAll('.nav-menu-btn').forEach((el) => {
+      el.classList.toggle('nav-menu-btn-scrolled', scrolled)
+    })
     navbar.querySelectorAll('.social-icon').forEach((el) => {
       el.classList.toggle('bg-cream', scrolled)
       el.classList.toggle('text-forest', scrolled)
-      el.classList.toggle('bg-white/10', !scrolled)
+      el.classList.toggle('bg-white/15', !scrolled)
       el.classList.toggle('text-white', !scrolled)
     })
-  })
+  }
+  updateNavbar()
+  window.addEventListener('scroll', updateNavbar, { passive: true })
 
   const observer = new IntersectionObserver(
     (entries) => entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add('visible') }),

@@ -217,8 +217,13 @@
   @apply absolute bottom-0 left-0 right-0 z-20 leading-none text-white;
 }
 
+#navbar {
+  @apply relative;
+}
+
 .nav-on-hero {
-  @apply bg-farm-dark/40 backdrop-blur-md border-b border-white/10;
+  background: linear-gradient(to bottom, rgba(15, 45, 28, 0.92), rgba(15, 45, 28, 0.72));
+  @apply backdrop-blur-md border-b border-white/15 shadow-lg shadow-black/10;
 }
 
 .nav-scrolled {
@@ -226,7 +231,25 @@
 }
 
 .nav-on-hero .nav-link-text {
-  @apply text-white/90 hover:text-farm-mist;
+  @apply text-white hover:text-white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.nav-scrolled .nav-link-text {
+  @apply text-forest hover:text-forest-light;
+  text-shadow: none;
+}
+
+.nav-scrolled .nav-menu-btn {
+  @apply border-forest/20 bg-forest/10 hover:bg-forest/15;
+}
+
+.nav-scrolled .nav-menu-icon {
+  @apply text-forest;
+}
+
+.nav-menu-btn-scrolled {
+  @apply border-forest/20 bg-forest/10;
 }
 
 .nav-scrolled .nav-call-btn {
