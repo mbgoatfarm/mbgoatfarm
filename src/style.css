@@ -164,7 +164,7 @@
   }
 
   .contact-panel {
-    @apply mb-2;
+    @apply mb-2 mx-auto w-full max-w-3xl;
   }
 
   .footer-logo-badge {
@@ -256,70 +256,54 @@
 }
 
 #navbar {
-  @apply relative transition-[background-color,box-shadow,border-color,backdrop-filter] duration-300 ease-out;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  @apply transition-[background-color,box-shadow,border-color] duration-300 ease-out;
 }
 
-/* At top of page: see-through over hero — logo white merges with header */
+/* Top of page: frosted white so logo + links are always visible */
 .nav-on-hero {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  box-shadow: none;
+  @apply bg-white/88 backdrop-blur-md;
+  border-bottom: 1px solid rgba(185, 28, 28, 0.08);
+  box-shadow: 0 1px 8px rgba(15, 23, 42, 0.06);
 }
 
-.nav-on-hero .nav-logo-img {
-  mix-blend-mode: multiply;
-}
-
-.nav-on-hero .nav-link-text {
-  @apply text-white hover:text-white/90;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
-}
-
-.nav-on-hero .nav-menu-btn {
-  @apply border-white/35 bg-white/10 hover:bg-white/20;
-}
-
-.nav-on-hero .nav-menu-icon {
-  @apply text-white;
-}
-
-/* After scroll: clean white bar + brand red links (matches logo) */
-.nav-scrolled {
-  @apply bg-white/98 backdrop-blur-lg shadow-md;
-  border-bottom: 1px solid rgba(185, 28, 28, 0.12);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
+.nav-on-hero .nav-logo-img,
 .nav-scrolled .nav-logo-img {
   mix-blend-mode: normal;
 }
 
+.nav-on-hero .nav-link-text,
 .nav-scrolled .nav-link-text {
   @apply text-forest hover:text-forest-light;
   text-shadow: none;
 }
 
+.nav-on-hero .nav-menu-btn,
 .nav-scrolled .nav-menu-btn {
-  @apply border-forest/25 bg-red-50 hover:bg-red-100;
+  @apply border-forest/20 bg-red-50 hover:bg-red-100;
 }
 
+.nav-on-hero .nav-menu-icon,
 .nav-scrolled .nav-menu-icon {
   @apply text-forest;
 }
 
-.nav-menu-btn-scrolled {
-  @apply border-forest/25 bg-red-50;
+.nav-on-hero .social-icon,
+.nav-scrolled .social-icon {
+  @apply bg-red-50 text-forest hover:bg-red-100;
+}
+
+.nav-scrolled {
+  @apply bg-white shadow-md;
+  border-bottom: 1px solid rgba(185, 28, 28, 0.14);
 }
 
 .nav-scrolled .nav-call-btn {
   @apply shadow-sm;
-}
-
-.nav-scrolled .social-icon {
-  @apply bg-red-50 text-forest hover:bg-red-100;
 }
 
 .footer-logo-img {

@@ -106,29 +106,29 @@ function filteredGoats() {
 
 function render(): string {
   return `
-    <nav id="navbar" class="nav-on-hero fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center h-16 md:h-20 gap-3 md:gap-4 w-full">
-          <a href="#home" class="site-logo flex items-center shrink-0 max-w-[52vw] sm:max-w-none" aria-label="MB Goat Farm home">
-            <img src="${LOGO_SRC}" alt="MB Goat Farm" width="1024" height="755" decoding="async" fetchpriority="high" class="h-10 sm:h-11 md:h-12 w-auto max-w-[160px] md:max-w-[190px] object-contain nav-logo-img" />
+    <nav id="navbar" class="nav-on-hero">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="flex items-center justify-between h-16 md:h-[4.5rem] gap-2 sm:gap-4 w-full">
+          <a href="#home" class="site-logo flex items-center shrink-0 min-w-0" aria-label="MB Goat Farm home">
+            <img src="${LOGO_SRC}" alt="MB Goat Farm" width="1024" height="755" decoding="async" fetchpriority="high" class="h-9 sm:h-10 md:h-11 w-auto max-w-[130px] sm:max-w-[150px] md:max-w-[170px] object-contain object-left nav-logo-img" />
           </a>
-          <div id="nav-links" class="hidden min-[800px]:flex flex-1 items-center justify-center gap-4 xl:gap-8 min-w-0 px-1 lg:px-2">
+          <div id="nav-links" class="hidden lg:flex flex-1 items-center justify-center gap-5 xl:gap-8 min-w-0 px-2">
             <a href="#about" class="nav-link whitespace-nowrap text-xs lg:text-sm font-semibold transition nav-link-text">About</a>
             <a href="#services" class="nav-link whitespace-nowrap text-xs lg:text-sm font-semibold transition nav-link-text">Services</a>
             <a href="#shop" class="nav-link whitespace-nowrap text-xs lg:text-sm font-semibold transition nav-link-text">Goats</a>
             <a href="#feed" class="nav-link whitespace-nowrap text-xs lg:text-sm font-semibold transition nav-link-text">Feed</a>
             <a href="#contact" class="nav-link whitespace-nowrap text-xs lg:text-sm font-semibold transition nav-link-text">Contact</a>
           </div>
-          <div class="flex items-center gap-2 shrink-0 ml-auto">
-            ${socialIcons('social-icon hidden lg:flex h-8 w-8 items-center justify-center rounded-full bg-white/15 text-white hover:bg-white/25 transition')}
-            ${callUsNow('inline-flex text-xs px-3 py-2 sm:px-4 sm:py-2.5 nav-call-btn')}
-            <button id="mobile-menu-btn" type="button" class="min-[800px]:hidden rounded-full p-2.5 border transition nav-menu-btn" aria-label="Open menu" aria-expanded="false">
-              <svg class="h-5 w-5 text-white nav-menu-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <div class="flex items-center justify-end gap-2 shrink-0">
+            ${socialIcons('social-icon hidden xl:flex h-8 w-8 items-center justify-center rounded-full transition social-icon')}
+            ${callUsNow('inline-flex text-xs px-3 py-2 sm:text-sm sm:px-4 sm:py-2.5 nav-call-btn shrink-0')}
+            <button id="mobile-menu-btn" type="button" class="lg:hidden rounded-full p-2.5 border transition nav-menu-btn shrink-0" aria-label="Open menu" aria-expanded="false">
+              <svg class="h-5 w-5 nav-menu-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
             </button>
           </div>
         </div>
       </div>
-      <div id="mobile-menu" class="hidden min-[800px]:hidden absolute left-0 right-0 top-full bg-white border-t border-wheat shadow-xl z-50">
+      <div id="mobile-menu" class="hidden lg:hidden absolute left-0 right-0 top-full bg-white border-t border-wheat shadow-xl">
         <div class="px-4 py-4 flex flex-col gap-3">
           <div class="flex justify-center pb-2">${socialIcons('social-icon-footer h-9 w-9 flex items-center justify-center rounded-full bg-forest/10 text-forest')}</div>
           <a href="#about" class="mobile-nav-link text-forest font-semibold py-2">About</a>
@@ -230,7 +230,7 @@ function render(): string {
             <div class="rounded-2xl overflow-hidden shadow-2xl">
               <img src="${ABOUT_IMG}" alt="Goats at MB Goat Farm" class="w-full h-80 md:h-[420px] object-cover" />
             </div>
-            <div class="rounded-2xl bg-white border border-red-100 p-5 shadow-lg md:max-w-[260px] md:-mt-20 md:ml-4 relative z-10">
+            <div class="rounded-2xl bg-white border border-red-100 p-5 shadow-lg w-full sm:w-auto md:max-w-[260px] md:-mt-16 md:ml-6 relative z-10">
               <p class="text-3xl font-extrabold text-forest">18+</p>
               <p class="text-sm font-semibold text-earth/80">Years of farming with love and dedication</p>
             </div>
@@ -505,12 +505,6 @@ function bindEvents(): void {
     })
     navbar.querySelectorAll('.nav-menu-btn').forEach((el) => {
       el.classList.toggle('nav-menu-btn-scrolled', scrolled)
-    })
-    navbar.querySelectorAll('.social-icon').forEach((el) => {
-      el.classList.toggle('bg-cream', scrolled)
-      el.classList.toggle('text-forest', scrolled)
-      el.classList.toggle('bg-white/15', !scrolled)
-      el.classList.toggle('text-white', !scrolled)
     })
   }
   updateNavbar()
